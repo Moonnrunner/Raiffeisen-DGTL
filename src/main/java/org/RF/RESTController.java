@@ -19,7 +19,6 @@ import java.util.Optional;
 public class RESTController {
     @Autowired
     private SocksRepos socksRepos;
-    //¬озвращает общее количество носков на складе, соответствующих переданным в параметрах критери€м запроса.
     @GetMapping()
     public @ResponseBody
     ResponseEntity get(@RequestParam("color") String color,
@@ -39,13 +38,12 @@ public class RESTController {
         }
         return ResponseEntity.ok(socks);
     }
-    //–егистрирует отпуск носков со склада.
     @PostMapping("outcome")
     public ResponseEntity postSocksOutcome(@Valid @RequestBody Socks socks){
         return postFindoutcome(socks);
     }
 
-    //–егистрирует приход носков на склад.
+
     @PostMapping("income")
     public ResponseEntity  postSocksIncome(@Valid @RequestBody Socks socks){
         return postFindIncome(socks);
